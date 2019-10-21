@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.destroy_all
+
+genres = %w(horror comedy drama suspense scifi fantasy action)
+
+genres.each do |g|
+    Genre.create(name: g)
+end
+
+# titles = ['back to the future', ]
