@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>all da users</h2>
+        <% @users.each do |user| %>
+            <li><%= link_to user.user_name, user_path(user) %>
+        <% end %>
+    </body>
+</html>

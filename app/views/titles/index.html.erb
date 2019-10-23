@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>all da titles</h2>
+        <% @titles.each do |t| %>
+            <li><%= link_to t.name, title_path(t) %></li>
+        <% end %>
+    </body>
+</html>

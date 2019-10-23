@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>all da genres</h2>
+        <% @genres.each do |g| %>
+            <li><%= link_to g.name, genre_path(g) %></li>
+        <% end %>
+    </body>
+</html>

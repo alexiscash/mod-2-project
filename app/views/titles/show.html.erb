@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Title: <%= @title.name %></h2>
+        <p><%= @title.description %></p>
+        <p>"<%= @title.quote %>"</p>
+        <p><%= @title.writer.name %></p>
+        <br>
+        <h3>Reviews</h3>
+        <% @title.reviews.each do |r| %>
+            <li><%= r.content %></li>
+            <li><%= r.rating %> out of 5</li>
+            <p>    - <%= r.user.user_name %></p>
+        <% end %> 
+
+        <%= button_to 'edit', edit_title_path(@title), method: :get %>
+        <%= button_to 'delete', title_path(@title), method: 'delete' %>
+    </body>
+</html>

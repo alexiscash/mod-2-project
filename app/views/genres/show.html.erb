@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2><%= @genre.name %></h2>
+        <% @genre.titles.each do |t| %>
+            <li><%= link_to t.name, title_path(t) %></li>
+        <% end %>
+    </body>
+</html>
