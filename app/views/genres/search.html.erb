@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,18 +10,7 @@
         </style>
     </head>
     <body>
-        <h2>all da titles</h2>
-
-        <% if flash[:errors] %>
-            <li><%= flash[:errors] %></li>
-        <% end %>
-
-        <%= form_with(url: "titles/search", method: "get") do %>
-          <%= label_tag(:q, "Search for title:") %>
-          <%= text_field_tag(:q) %>
-          <%= submit_tag("Search") %>
-        <% end %>
-        <br><br>
+        <h2><%= @genre.name %> movies</h2>
         <% @titles.each do |t| %>
             <li><%= link_to t.name, title_path(t) %></li>
             <br>

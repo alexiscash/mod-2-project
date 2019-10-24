@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                background: gray;
+                font-family: arial, sans-serif;
+                color: white;
+            }
+
+            p {
+                padding-left: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Welcome, <%= @user.user_name %></h2>
+        <br>
+        <h3>Reviews:</h3>
+        <% @user.reviews.each do |r| %>
+            <h4><%= r.title.name %></h4>
+            <p><%= link_to "#{r.content[0..10]}...", title_path(r.title) %></p>
+        <% end %>
+    </body>
+</html>

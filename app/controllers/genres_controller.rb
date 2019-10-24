@@ -1,24 +1,29 @@
 class GenresController < ApplicationController
     before_action :current, only: [:edit, :update, :show, :destroy]
 
+   def search
+     @genre = Genre.find_by(name: params[:q])
+     @titles = @genre.titles
+   end
+
    def index
-        @genres = Genre.all
+     @genres = Genre.all
    end
    
    def new 
-        @genre = Genre.new
+     @genre = Genre.new
    end
    
    def create
-        @genre = Genre.new(prams)
+     @genre = Genre.new(prams)
 
-        if @genre.valid?
-            @genre.save
-            redirect_to @genre
-        else
-            flash[:errors] = @genre.errors.full_messages
-            redirect_to new_genre_path
-        end
+     if @genre.valid?
+          @genre.save
+          redirect_to @genre
+     else
+          flash[:errors] = @genre.errors.full_messages
+          redirect_to new_genre_path
+     end
    end
    
    def edit
@@ -26,9 +31,9 @@ class GenresController < ApplicationController
    end
    
    def update
-        @genre.update(prams)
-        @genre.save
-        redirect_to @genre
+     @genre.update(prams)
+     @genre.save
+     redirect_to @genre
    end
    
    def show
@@ -36,17 +41,17 @@ class GenresController < ApplicationController
    end
    
    def destroy
-        @genre.destroy
-        redirect_to genres_path
+     @genre.destroy
+     redirect_to genres_path
    end
 
    private
 
    def current
-        @genre = Genre.find(params[:id])
+     @genre = Genre.find(params[:id])
    end
 
    def prams 
-        params.require(:genre).permit(:name)
+     params.require(:genre).permit(:name)
    end
 end

@@ -3,9 +3,8 @@ class CreateTitles < ActiveRecord::Migration[6.0]
     create_table :titles do |t|
       t.string :name
       t.text :description
-      t.string :quote
-      t.string :character
       t.integer :writer_id
+      t.string :img
 
       t.timestamps
     end

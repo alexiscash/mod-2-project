@@ -11,8 +11,17 @@
     </head>
     <body>
         <h2>all da genres</h2>
+
+        <%= form_with(url: "genres/search", method: "get") do %>
+          <%= label_tag(:q, "Search by genre:") %>
+          <br><br>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+        <% end %>
+        <br>
         <% @genres.each do |g| %>
             <li><%= link_to g.name, genre_path(g) %></li>
+            <br>
         <% end %>
     </body>
 </html>

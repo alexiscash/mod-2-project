@@ -30,9 +30,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_161337) do
   create_table "titles", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "quote"
-    t.string "character"
     t.integer "writer_id"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
