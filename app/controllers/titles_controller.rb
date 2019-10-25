@@ -17,12 +17,22 @@ class TitlesController < ApplicationController
             response = JSON.parse(RestClient.get(url, header={}))
             # byebug
 
-            # @writer = Writer.find_by(name: response["Writer"])
+            @genre = Genre.find_by(name: response["Genre"].split(', ').first.downcase)
+
+            if !@genre 
+                @genre = Genre.create(name: response["Genre"].split(', ').first.downcase)
+            end
+
+            @writer = Writer.find_by(name: response["Writer"])
+
+            if !@writer 
+                @writer = Writer.create(name: response["Writer"], genre_id: @genre.id)
+            end
 
             if response["Response"] == "True"
                 @title = Title.create(
                 name: response["Title"],
-                writer_id: Writer.find_by(name: 'wilson').id,
+                writer_id: @writer.id,
                 description: response["Plot"],
                 img: response["Poster"]
             )
@@ -70,7 +80,6 @@ class TitlesController < ApplicationController
     end
     
     def show
-        @add = true
         @review = Review.new
         @user = User.find_by(user_name: 'swag boi')
     end

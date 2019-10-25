@@ -54,4 +54,5 @@ class GenresController < ApplicationController
    def prams 
      params.require(:genre).permit(:name)
    end
+   
 end

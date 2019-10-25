@@ -32,7 +32,7 @@ genres.each do |g|
 end
 
 wilson = Writer.create(name: 'wilson', genre_id: Genre.find_by(name: 'scifi').id)
-vince = Wrtier.create(name: 'Vince', genre_id: Genre.find_by(name: 'thriller').id)   
+vince = Writer.create(name: 'Vince', genre_id: Genre.find_by(name: 'thriller').id)   
 martin = Writer.create(name:'Martin', genre_id: Genre.find_by(name: 'action').id)
 david = Writer.create(name: 'David', genre_id: Genre.find_by(name: 'action').id)
 
@@ -52,15 +52,18 @@ Review.create(content: 'not enough mom banging', user: user, title: future, rati
 el_camino = Title.create(
     name: 'El Camino', 
     writer_id: vince.id,
-    description:'A Breaking Bad Movie that reunited fans with Jesse Pinkman',)
+    description:'A Breaking Bad Movie that reunited fans with Jesse Pinkman'
+    )
 
 irish = Title.create(
     name: 'The Irishman', 
     writer_id: martin.id,
-    description:'truck driver gets involved with a dangerous crime family',
+    description:'truck driver gets involved with a dangerous crime family'
+    )
 
 
 king = Title.create(
     name: 'The King',
     writer_id: david.id,
-    description:'Young Henry V encounters deceit,war and treachery after becoming King Of England in the 15th century, in the aftermath of his brother death',)
+    description:'Young Henry V encounters deceit,war and treachery after becoming King Of England in the 15th century, in the aftermath of his brother death'
+    )
